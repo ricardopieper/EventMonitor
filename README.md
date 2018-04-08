@@ -15,4 +15,40 @@ Each listener will:
 Other features it should have:
 
  - Trigger definitions
- - Cool realtime charts   
+ - Cool realtime charts
+ 
+ 
+# Triggers
+
+To reduce the complexity of state and its control, an actor based system will be used to keep the last events within a timestamp. Events may be produced in a multithreaded way. Akka will provide the mechanism to control the delivery of such events safely.
+
+Actors are cheap. Therefore I'll not worry about how many will be created, but instead on minimize the state of each actor.
+
+The old approach was to listen to subscribe to a stream, executing filters on top of it and changing the actor's state based on a series of rules. This has caused some problems, many of them related to corner cases in the actor needed information about the past.
+
+## Tick rate
+
+Another problem of the old approach was to rely only on the reception of events to update its state. However, sometimes new events wouldn't be produced for quite some time. In abscence of events, the only choice was to maintain the current state.
+
+A constant tick rate will be kept to update the actor's state every second. For now that's how it going to be, maybe another way will be discovered. 
+
+## Name matching
+
+Each event has a name, or type. They should follow patterns, like:
+	cpu.total.percentage
+	cpu.process.chrome.percentage
+	cpu.process.w3wp.percentage
+	mem.used.total.percentage
+	mem.used.process.chrome.percentage
+	mem.free.total.percentage
+	mem.free.process.chrome.percentage
+	mem.used.total.mb
+	mem.used.process.chrome.mb
+	mem.free.total.mb
+	mem.free.process.chrome.mb
+	....
+	
+This is so that events can be addressed by specificity, or "namespaced". This could allow for a fast routing algorithm that sends the event to the appropriate actor. For now, a dictionary lookup should suffice. But the idea could be expanded. For instance: I wish to monitor for any process that exceeds 25% CPU usage. A trigger could be configured to monitor on `cpu.process.*.percentage` for any process that exceeds 25%, and then display the event that caused the trigger.
+
+This is also different than the old approach. That approach was based on a rigid schema, where all the things that I'd want to be monitored had to be defined upfront in classes. This lead to a lot of duplication of code that had to be replicated. Eventually I created an easy way to define those using some black magic, but that alone created a lot more complexity in the code.
+ 
