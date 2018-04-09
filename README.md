@@ -55,5 +55,5 @@ This is also different than the old approach. That approach was based on a rigid
  
 ## Event value
 
-The event will always carry a single scalar value that's either a string or a number. And that's it. Multiple values should be multiple events. Or find a smart way to represent it with a name. If an event wants to notify a change of usage percentage in all of its disks, they should be multiple events.
+The event will always carry a single scalar value that's either a string or a number. And that's it. Multiple values should be multiple events. Or find a smart way to represent it with a name. If an event wants to notify a change of usage percentage in all of the machine's disks, they should be multiple events.
 
