@@ -23,6 +23,5 @@ namespace EventMonitor.Http.Controllers
         {
             unifiedEventSource.Push(value);
         }
-
     }
 }

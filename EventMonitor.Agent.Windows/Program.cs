@@ -33,10 +33,7 @@ namespace EventMonitor.Agent.Windows
                             location = "unknown"
                         },
                         type = "cpu.total-percentage",
-                        value = new
-                        {
-                            value = cpuPercentage.NextValue()
-                        },
+                        value =  cpuPercentage.NextValue(),
                         timestampUtc = DateTime.UtcNow
                     });
 

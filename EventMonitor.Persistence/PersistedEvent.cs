@@ -9,9 +9,9 @@ namespace EventMonitor.Persistence
     {
         public String Id { get; set; }
         public Resource Origin { get; set; }
-        public String Type { get; set; }
-        public Dictionary<String, Object> Value { get; set; }
-        public DateTime TimestampUTC { get; set; }
+        public String Name { get; set; }
+        public Object Value { get; set; }
+        public DateTime TimestampUtc { get; set; }
 
         public Event ToEvent() => new Event
         {
@@ -20,9 +20,9 @@ namespace EventMonitor.Persistence
                 Name = Origin.Name,
                 Location = Origin.Location
             },
-            Type = Type,
-            Value = new Dictionary<String, Object>(Value),
-            TimestampUTC = TimestampUTC
+            Name = Name,
+            Value = Value,
+            TimestampUtc = TimestampUtc
         };
     }
 }

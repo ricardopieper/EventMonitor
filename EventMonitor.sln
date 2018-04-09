@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMonitor.Http", "EventM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMonitor.Agent.Windows", "EventMonitor.Agent.Windows\EventMonitor.Agent.Windows.csproj", "{45AA1FAF-A783-4413-AEA9-AA495B2FFBD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMonitor.Monitoring", "EventMonitor.Monitoring\EventMonitor.Monitoring.csproj", "{541752C2-79F2-48DD-9E1C-D3FA20312CDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventMonitor.Monitoring.Tests", "EventMonitor.Monitoring.Tests\EventMonitor.Monitoring.Tests.csproj", "{DD7BCB98-B109-4656-8377-D4B88DC63F0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{45AA1FAF-A783-4413-AEA9-AA495B2FFBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45AA1FAF-A783-4413-AEA9-AA495B2FFBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45AA1FAF-A783-4413-AEA9-AA495B2FFBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{541752C2-79F2-48DD-9E1C-D3FA20312CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{541752C2-79F2-48DD-9E1C-D3FA20312CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{541752C2-79F2-48DD-9E1C-D3FA20312CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{541752C2-79F2-48DD-9E1C-D3FA20312CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD7BCB98-B109-4656-8377-D4B88DC63F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD7BCB98-B109-4656-8377-D4B88DC63F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD7BCB98-B109-4656-8377-D4B88DC63F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD7BCB98-B109-4656-8377-D4B88DC63F0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
