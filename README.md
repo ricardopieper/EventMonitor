@@ -35,6 +35,7 @@ A constant tick rate will be kept to update the actor's state every second. For 
 ## Name matching
 
 Each event has a name, or type. They should follow patterns, like:
+
 	cpu.total.percentage
 	cpu.process.chrome.percentage
 	cpu.process.w3wp.percentage
