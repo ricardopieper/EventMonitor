@@ -20,7 +20,7 @@ Other features it should have:
  
 # Triggers
 
-To reduce the complexity of state and its control, an actor based system will be used to keep the last events within a timestamp. Events may be produced in a multithreaded way. Akka will provide the mechanism to control the delivery of such events safely.
+To reduce the complexity of state and its control, an actor based system will be used to keep the last events within a timespan. Events may be produced in a multithreaded way. Akka will provide the mechanism to control the delivery of such events safely.
 
 Actors are cheap. Therefore I'll not worry about how many will be created, but instead on minimize the state of each actor.
 
@@ -52,3 +52,7 @@ This is so that events can be addressed by specificity, or "namespaced". This co
 
 This is also different than the old approach. That approach was based on a rigid schema, where all the things that I'd want to be monitored had to be defined upfront in classes. This lead to a lot of duplication of code that had to be replicated. Eventually I created an easy way to define those using some black magic, but that alone created a lot more complexity in the code.
  
+## Event value
+
+The event will always carry a single scalar value that's either a string or a number. And that's it. Multiple values should be multiple events. Or find a smart way to represent it with a name. If an event wants to notify a change of usage percentage in all of its disks, they should be multiple events.
+
