@@ -24,7 +24,9 @@ To reduce the complexity of state and its control, an actor based system will be
 
 Actors are cheap. Therefore I'll not worry about how many will be created, but instead on minimize the state of each actor.
 
-The old approach was to listen to subscribe to a stream, executing filters on top of it and changing the actor's state based on a series of rules. This has caused some problems, many of them related to corner cases in the actor needed information about the past.
+The old approach was to subscribe to a stream, executing filters on top of it and changing the actor's state based on a series of rules. This has caused some problems, many of them related to corner cases when the actor needed information about the past to decide the next state. Essentially, the state machine was complex. 
+
+The new approach will just take all events of the last N minutes/seconds/whatever and compute what the state should be for the given actor. If the 
 
 ## Tick rate
 
