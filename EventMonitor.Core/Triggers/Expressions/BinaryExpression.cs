@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EventMonitor.Core.Triggers.Expression
+namespace EventMonitor.Core.Triggers.Expressions
 {
     public class BinaryExpression : Expression
     {

@@ -1,3 +1,4 @@
+using EventMonitor.Core.Triggers.Expressions;
 using System;
 using Xunit;
 

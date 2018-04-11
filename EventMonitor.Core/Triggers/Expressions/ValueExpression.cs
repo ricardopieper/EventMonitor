@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace EventMonitor.Core.Triggers.Expression
+namespace EventMonitor.Core.Triggers.Expressions
 {
     public class ValueExpression : Expression
     {

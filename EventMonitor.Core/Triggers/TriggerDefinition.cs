@@ -1,5 +1,5 @@
-﻿using System;
-
+﻿using EventMonitor.Core.Triggers.Expressions;
+using System;
 namespace EventMonitor.Core.Triggers
 {
     public class TriggerDefinition
