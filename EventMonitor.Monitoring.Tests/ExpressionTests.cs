@@ -48,19 +48,21 @@ namespace EventMonitor.Monitoring.Tests
             Assert.Equal("avg(event.name) == 15.5", Expr.Avg("event.name").Eq(15.5F).ToString());
         }
 
-
         [Fact]
         public void NestedExpressionProducesCorrectString()
         {
-            Assert.Equal("(15.1 < 15.5 && 3 > 2)", Expr.Of(15.1F).Lt(15.5).And(Expr.Of(3).Gt(2)).ToString());
+            Assert.Equal("(15.1 < 15.5 && 3 > 2)",
+                Expr.Of(15.1F).Lt(15.5).And(
+                    Expr.Of(3).Gt(2)).ToString());
         }
 
         [Fact]
         public void MultipleNestedExpressions()
         {
-            Assert.Equal("(15.1 < 15.5 || (2 < 3 && avg(event.name) < 6))", 
+            Assert.Equal("(15.1 < 15.5 || (2 < 3 && avg(event.name) < 6))",
                 Expr.Of(15.1F).Lt(15.5).Or(
-                    Expr.Of(2).Lt(3).And(Expr.Avg("event.name").Lt(6)
+                    Expr.Of(2).Lt(3).And(
+                        Expr.Avg("event.name").Lt(6)
                     )
                 ).ToString());
         }

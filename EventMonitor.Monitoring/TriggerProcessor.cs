@@ -57,6 +57,7 @@ namespace EventMonitor.Monitoring
         {
             return false;
         }
+
         /// <summary>
         /// Use this method only for tests. The interface exposed by this method only means that
         /// the collection returned is not lazy. Actual implementation is System.Collections.Immutable.ImmutableList,
