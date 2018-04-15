@@ -21,7 +21,7 @@ namespace EventMonitor.Http.Controllers
         [HttpPut("emit")]
         public void Put([FromBody]Event value)
         {
-            unifiedEventSource.Push(value);
+            unifiedEventSource.PushAsync(value);
         }
     }
 }

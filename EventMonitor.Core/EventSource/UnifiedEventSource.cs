@@ -1,35 +1,55 @@
 ﻿using EventMonitor.Core.Events;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace EventMonitor.Core.EventSource
 {
     public class UnifiedEventSource
     {
         private IUnhandledExceptionNotifier unhandledExceptionNotifier;
-        private List<Action<Event>> subscribers = new List<Action<Event>>();
+        private List<Func<Event, Task>> subscribers = new List<Func<Event, Task>>();
 
         public UnifiedEventSource(IUnhandledExceptionNotifier unhandledExceptionNotifier)
         {
             this.unhandledExceptionNotifier = unhandledExceptionNotifier;
         }
 
+        public Task PushAsync(Event @event)
+        {
+            var tasks = subscribers.Select(subscriber => DispatchEvent(@event, subscriber));
+            return Task.WhenAll(tasks);
+        }
+
         public void Push(Event @event)
         {
-            subscribers.ForEach(x =>
-            {
-                try { x(@event); }
-                catch (Exception ex)
-                {
-                    unhandledExceptionNotifier.Notify(ex);
-                }
-            }
-          );
+            PushAsync(@event).Wait();
         }
 
         public void Subscribe(Action<Event> callback)
         {
-            subscribers.Add(callback);
+            subscribers.Add(@event =>
+                Task.Run(() => callback(@event)));
         }
+
+        public void SubscribeTask(Func<Event, Task> callback)
+        {
+            subscribers.Add(@event => callback(@event));
+        }
+
+        private async Task DispatchEvent(Event @event, Func<Event, Task> callback)
+        {
+            try {
+                var task = callback(@event);
+                await task;
+            }
+            catch (Exception ex)
+            {
+                unhandledExceptionNotifier.Notify(ex);
+            }
+        }
+
     }
+
 }
