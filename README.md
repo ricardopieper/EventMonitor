@@ -22,14 +22,14 @@ I think that's okay. It was the simplest thing we could afford, and it mostly wo
  
  - Types of information: CPU usage, memory usage, etc etc... all of these were different classes and extra metadata stored on the DB. If we wanted to monitor a new kind of metric (for instance, number of Redis keys), we would have to:
   
-  - Change the DB schema
-  - Change the JSON contract for the product
-  - Create an actor that would be able to deal with that particular kind of data and nothing else
-  - Change the trigger schema to include a new kind of data
-  - Create a watch on top of this slice of data, which notifies the UI when it changes
-  - Do all sorts of things in the UI to support:
-   - Creating triggers for it
-   - Displaying it
+	  - Change the DB schema
+	  - Change the JSON contract for the product
+	  - Create an actor that would be able to deal with that particular kind of data and nothing else
+	  - Change the trigger schema to include a new kind of data
+	  - Define a watcher on top of this slice of data, which notifies the UI when it changes
+	  - Do all sorts of things in the UI to support:
+		   - Creating triggers for it
+		   - Displaying it
 
   Sisteminha did differentiate between discrete and continuous values. That's a thing that I'm still thinking on how to do in the new architecture. Cloudwatch solves this problem in a nice way, and I think I'll do the same. There's no difference between them, they're just datapoints.
    
