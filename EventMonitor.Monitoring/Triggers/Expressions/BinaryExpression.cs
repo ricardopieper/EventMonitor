@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EventMonitor.Core.Triggers.Expressions
+namespace EventMonitor.Monitoring.Triggers.Expressions
 {
     public class BinaryExpression : Expression
     {
@@ -27,7 +27,19 @@ namespace EventMonitor.Core.Triggers.Expressions
             return hashCode;
         }
 
-        public override string ToString() => $"{Left.ToString()} {GetOperator()} {Right.ToString()}";
+        public override string ToString()
+        {
+            if (IsSimpleExpression(Left) && IsSimpleExpression(Right))
+            {
+                return $"{Left.ToString()} {GetOperator()} {Right.ToString()}";
+            }
+            else
+            {
+                return $"({Left.ToString()} {GetOperator()} {Right.ToString()})";
+            }
+        }
+
+        private bool IsSimpleExpression(Expression exp) => !(exp is BinaryExpression);
 
         public static bool operator ==(BinaryExpression expression1, BinaryExpression expression2) => EqualityComparer<BinaryExpression>.Default.Equals(expression1, expression2);
 
@@ -38,6 +50,7 @@ namespace EventMonitor.Core.Triggers.Expressions
             switch (BinaryOperator)
             {
                 case BinaryOperator.And: return "&&";
+                case BinaryOperator.Or: return "||";
                 case BinaryOperator.Equals: return "==";
                 case BinaryOperator.GreaterOrEquals: return ">=";
                 case BinaryOperator.GreaterThan: return ">";

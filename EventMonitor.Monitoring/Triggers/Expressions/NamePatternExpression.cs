@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EventMonitor.Core.Triggers.Expressions
+namespace EventMonitor.Monitoring.Triggers.Expressions
 {
     public class NamePatternExpression : Expression
     {

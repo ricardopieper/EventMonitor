@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace EventMonitor.Core.Triggers.Expressions
+namespace EventMonitor.Monitoring.Triggers.Expressions
 {
-    public class ValueExpression : Expression
+    public class LiteralValueExpression : Expression
     {
         public Object Value { get; set; }
 
         public override bool Equals(object obj)
         {
-            var expression = obj as ValueExpression;
+            var expression = obj as LiteralValueExpression;
             return expression != null &&
                    EqualityComparer<object>.Default.Equals(Value, expression.Value);
         }
 
         public override int GetHashCode() => -1937169414 + EqualityComparer<object>.Default.GetHashCode(Value);
 
-        public static bool operator ==(ValueExpression expression1, ValueExpression expression2) => EqualityComparer<ValueExpression>.Default.Equals(expression1, expression2);
+        public static bool operator ==(LiteralValueExpression expression1, LiteralValueExpression expression2) => EqualityComparer<LiteralValueExpression>.Default.Equals(expression1, expression2);
 
-        public static bool operator !=(ValueExpression expression1, ValueExpression expression2) => !(expression1 == expression2);
+        public static bool operator !=(LiteralValueExpression expression1, LiteralValueExpression expression2) => !(expression1 == expression2);
 
         public override string ToString()
         {

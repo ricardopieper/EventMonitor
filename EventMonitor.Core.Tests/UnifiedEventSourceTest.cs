@@ -85,6 +85,15 @@ namespace EventMonitor.Core.Tests
         }
 
         [Fact]
+        public async Task PushDoesNotBreakCallerIfConsumerThrowsAsync()
+        {
+            MockUES mock = fixture.Mock();
+            UnifiedEventSource es = mock.Instance;
+            es.SubscribeTask(@event => throw new Exception("Oops"));
+            await es.PushAsync(new Event());
+        }
+
+        [Fact]
         public void IfConsumerThrowsContinueCallingConsumers()
         {
             MockUES mock = fixture.Mock();
@@ -99,12 +108,36 @@ namespace EventMonitor.Core.Tests
         }
 
         [Fact]
+        public async Task IfConsumerThrowsContinueCallingConsumersAsync()
+        {
+            MockUES mock = fixture.Mock();
+            UnifiedEventSource es = mock.Instance;
+
+            bool called = false;
+            es.SubscribeTask(@event => throw new Exception("Oops"));
+            es.SubscribeTask(@event => Task.Run(() => called = true));
+
+            await es.PushAsync(new Event());
+            Assert.True(called);
+        }
+
+        [Fact]
         public void IfThrowsThenNotifyIsCalled()
         {
             Exception e = new Exception("Oops");
             MockUES mock = fixture.Mock();
             mock.Instance.Subscribe(@event => throw e);
             mock.Instance.Push(new Event());
+            mock.Notifier.Verify(x => x.Notify(e));
+        }
+
+        [Fact]
+        public async Task IfThrowsThenNotifyIsCalledAsync()
+        {
+            Exception e = new Exception("Oops");
+            MockUES mock = fixture.Mock();
+            mock.Instance.SubscribeTask(@event => throw e);
+            await mock.Instance.PushAsync(new Event());
             mock.Notifier.Verify(x => x.Notify(e));
         }
     }

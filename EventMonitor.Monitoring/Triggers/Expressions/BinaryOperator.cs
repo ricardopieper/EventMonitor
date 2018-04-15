@@ -1,4 +1,4 @@
-﻿namespace EventMonitor.Core.Triggers.Expressions
+﻿namespace EventMonitor.Monitoring.Triggers.Expressions
 {
     public enum BinaryOperator
     {
