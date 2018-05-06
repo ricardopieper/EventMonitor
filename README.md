@@ -4,8 +4,8 @@ I'm reconstructing an old project I did while working at Migrate Company. It was
 
 # TODO
     [ ] UI
-    	[ ] Trigger CRUD
-	[ ] Chart editor
+        [ ] Trigger CRUD
+        [ ] Chart editor
     [ ] Expression
         [X] Expression DSL
         [X] Expression parser
