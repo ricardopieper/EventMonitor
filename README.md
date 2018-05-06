@@ -2,6 +2,48 @@
 
 I'm reconstructing an old project I did while working at Migrate Company. It was an infrastructure monitor, like Cloudwatch. 
 
+# TODO
+    [ ] UI
+    	[ ] Trigger CRUD
+	[ ] Chart editor
+    [ ] Expression
+    	[X] Expression DSL
+	[X] Expression parser
+	[ ] Expression runner
+    [X] Timed Collection
+    [ ] Event actor
+    [ ] Windows agent
+    	[X] CPU
+	[ ] RAM
+	[ ] Disk
+	[ ] Network in/out
+	[ ] Per process:
+	    [ ] CPU
+	    [ ] RAM
+	    [ ] Network (hard to do on Windows)
+    [ ] Unix agent (python)
+    	[ ] CPU
+	[ ] RAM
+	[ ] Disk
+	[ ] Network in/out
+	[ ] Per process:
+	    [ ] CPU
+	    [ ] RAM
+	    [ ] Network
+    [ ] Vendor-specific
+	[ ] Redis
+	[ ] Postgresql
+	[ ] .NET processes
+	    [ ] GC events
+	    [ ] Gen1 size
+	    [ ] Gen2 size
+	    [ ] LOB size
+	    [ ] Exception
+	[ ] ASP.NET
+	    [ ] Requests per sec, per app
+	[ ] Log
+	    [ ] Slf4j format, tail file
+	    
 # History and naming
 
 We liked to call it "Sisteminha" (little system) but management looked down on us, as if we weren't taking the situation seriously. 
