@@ -56,7 +56,7 @@ namespace EventMonitor.Core.Tests
         [Fact]
         public async Task AsyncAllTaskCallbacksAreBeingCalledOnPush()
         {
-            var tasks = Enumerable.Range(0, 500).Select(async x =>
+            var tasks = Enumerable.Range(0, 5000).Select(async x =>
             {
                 MockUES mock = fixture.Mock();
                 UnifiedEventSource es = mock.Instance;

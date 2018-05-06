@@ -12,6 +12,7 @@ namespace EventMonitor.Monitoring.Tests
     public class TriggerProcessorTests
     {
         [Fact]
+
         public void HoldsEventsForTheSpecifiedTimeSpan()
         {
             UnifiedEventSource ues = new UnifiedEventSource(new SwallowException());

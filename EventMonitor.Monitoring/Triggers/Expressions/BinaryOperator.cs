@@ -2,7 +2,7 @@
 {
     public enum BinaryOperator
     {
-        Equals,
+        Equals, NotEquals,
         GreaterThan, LessThan,
         LessOrEquals, GreaterOrEquals,
         And, Or,

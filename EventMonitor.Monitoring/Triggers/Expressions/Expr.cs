@@ -20,11 +20,16 @@ namespace EventMonitor.Monitoring.Triggers.Expressions
         public static BinaryExpression Lte(this Expression left, Expression right) => new BinaryExpression { Left = left, Right = right, BinaryOperator = BinaryOperator.LessOrEquals };
         public static BinaryExpression Lt(this Expression left, Expression right) => new BinaryExpression { Left = left, Right = right, BinaryOperator = BinaryOperator.LessThan };
         public static BinaryExpression Eq(this Expression left, Expression right) => new BinaryExpression { Left = left, Right = right, BinaryOperator = BinaryOperator.Equals };
+        public static BinaryExpression NEq(this Expression left, Expression right) => new BinaryExpression { Left = left, Right = right, BinaryOperator = BinaryOperator.Equals };
 
         public static BinaryExpression Gte(this Expression left, Object right) => left.Gte(Of(right));
         public static BinaryExpression Gt(this Expression left, Object right) => left.Gt(Of(right));
         public static BinaryExpression Lte(this Expression left, Object right) => left.Lte(Of(right));
         public static BinaryExpression Lt(this Expression left, Object right) => left.Lt(Of(right));
         public static BinaryExpression Eq(this Expression left, Object right) => left.Eq(Of(right));
+        public static BinaryExpression NEq(this Expression left, Object right) => left.NEq(Of(right));
+
+     
+
     }
 }

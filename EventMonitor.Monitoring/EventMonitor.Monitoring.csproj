@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Triggers\Expressions\ExpressionParser.cs~RF7e2f80f5.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Akka" Version="1.3.5" />
     <PackageReference Include="System.Collections.Immutable" Version="1.4.0" />
   </ItemGroup>
