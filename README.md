@@ -2,6 +2,12 @@
 
 I'm reconstructing an old project I did while working at Migrate Company. It was an infrastructure monitor, like Cloudwatch. 
 
+# Build
+
+You will need powershell on your system. Install the latest version of Powershell on your system. Please refer to https://github.com/PowerShell/PowerShell.
+
+This is necessary for EventMonitor.Grpc. If you don't want a GRPC server/client and instead use the default HTTP 1.1 server, you can ignore this and unload the project.
+
 # History and naming
 
 We liked to call it "Sisteminha" (little system) but management looked down on us, as if we weren't taking the situation seriously. 

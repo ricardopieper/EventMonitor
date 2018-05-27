@@ -21,7 +21,7 @@ namespace EventMonitor.Monitoring.Tests
         {
             ExpressionParser parser = new ExpressionParser();
             Expression parsed = parser.Parse("1 > 2 && 4 > 3");
-            Assert.Equal( (Expr.Of(1) > 2 & Expr.Of(4) > 3).ToString(), parsed.ToString());
+            Assert.Equal((Expr.Of(1) > 2 & Expr.Of(4) > 3).ToString(), parsed.ToString());
         }
 
         [Fact]
@@ -29,7 +29,8 @@ namespace EventMonitor.Monitoring.Tests
         {
             ExpressionParser parser = new ExpressionParser();
             Expression parsed = parser.Parse("avg(event.name) > 2 && 4 > 3");
-            Assert.Equal((new FunctionExpression { EventName = "event.name", FunctionName = "avg" } > 2 & Expr.Of(4) > 3).ToString(), parsed.ToString());
+            Expression expected = Expr.Avg("event.name") > 2 & Expr.Of(4) > 3;
+            Assert.Equal(expected.ToString(), parsed.ToString());
         }
     }
 }
