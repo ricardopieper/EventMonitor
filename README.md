@@ -2,7 +2,6 @@
 
 I'm reconstructing an old project I did while working at Migrate Company. It was an infrastructure monitor, like Cloudwatch. 
 
-<<<<<<< HEAD
 # Build
 
 You will need powershell on your system. Install the latest version of Powershell on your system. Please refer to https://github.com/PowerShell/PowerShell.
@@ -52,7 +51,6 @@ This is necessary for EventMonitor.Grpc. If you don't want a GRPC server/client 
         [ ] Log
             [ ] Slf4j format, tail file
 	    
->>>>>>> 0df21492ac62eae25c038bd897ae1b0c34e3b316
 # History and naming
 
 We liked to call it "Sisteminha" (little system) but management looked down on us, as if we weren't taking the situation seriously. 
